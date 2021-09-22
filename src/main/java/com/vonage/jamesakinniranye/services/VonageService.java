@@ -54,7 +54,7 @@ public class VonageService {
     }
 
     private static Action record(String url) {
-        return RecordAction.builder().eventUrl(url).endOnKey('#').timeOut(5).beepStart(true).build();
+        return RecordAction.builder().eventUrl(url).endOnKey('#').timeOut(4).beepStart(true).build();
     }
 
 }
