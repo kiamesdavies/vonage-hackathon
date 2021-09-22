@@ -7,7 +7,7 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.jvm -t kiamesdavies/vonage-hackathon-jvm:0.0.1 .
+# docker build -f src/main/docker/Dockerfile.jvm -t kiamesdavies/vonage-hackathon-jvm:0.0.3-x86 .
 #
 # Then run the container using:
 #

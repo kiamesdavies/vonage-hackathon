@@ -24,7 +24,7 @@ Be aware that it’s not an _über-jar_ as the dependencies are copied into the 
 
 If you want to build an _über-jar_, execute the following command:
 ```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
+./mvnw package -Dmaven.test.skip=true -Dquarkus.package.type=uber-jar
 ```
 
 The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.

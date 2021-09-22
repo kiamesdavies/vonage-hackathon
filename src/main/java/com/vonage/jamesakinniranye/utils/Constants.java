@@ -112,7 +112,7 @@ public class Constants {
             """;
     public static final String LANGUAGE = "no-STT";
     public static final String PHRASE = "never forget tomorrow is a new day";
-    public static final String API_SERVER = "http://voice1.yellowfin.npe:9087";
+    public static final String API_SERVER = "http://vonage-hackathon.sycliff.com:9087";
     public static final String APPLICATION_ID = "9d1383d4-355b-464c-b9aa-96f8fb6b59b7";
     public static final int LANGUAGE_STYLE = 10;
     public static final String VONAGE_PRIVATE_KEY_CONTENT = """
