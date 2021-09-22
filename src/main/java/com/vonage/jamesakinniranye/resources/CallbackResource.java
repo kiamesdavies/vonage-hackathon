@@ -43,7 +43,7 @@ public class CallbackResource {
     @Produces(TEXT_PLAIN)
     public String enrollRecording(@PathParam("userId") String userId, Recording recording) {
         LOG.infov("Received recording {0} for user {1}", recording, userId);
-        final var response = voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, recording.recording_url()));
+        final var response = voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, recording.recording_url()+"?api_key=1a842829&api_secret=RYqubGmLZIlr2ilY"));
         LOG.infov("Enrolled recording {0} for phoneNumber {1}, status {2} ",
                 recording.recording_url, userRepository.getPhoneNumber(userId), response.status());
         return format("Enrolled %s with %s", userId, recording.recording_url);
@@ -56,7 +56,7 @@ public class CallbackResource {
     @Produces(TEXT_PLAIN)
     public String verify(@PathParam("userId") String userId, Recording recording) {
         LOG.infov("Received recording {0} for user {1}", recording, userId);
-        final var response = verificationService.verify(new VoiceParams(userId, LANGUAGE, PHRASE, recording.recording_url()));
+        final var response = verificationService.verify(new VoiceParams(userId, LANGUAGE, PHRASE, recording.recording_url()+"?api_key=1a842829&api_secret=RYqubGmLZIlr2ilY"));
         LOG.infov("Verified recording {0} from phoneNumber {1}, match confidence is {2}, text confidence is {3}, and  status {4}",
                 recording.recording_url, userRepository.getPhoneNumber(userId), response.confidence(), response.textConfidence(), response.status());
         return format("Verified %s with %s", userId, recording.recording_url);
@@ -65,6 +65,6 @@ public class CallbackResource {
 
     @XmlRootElement
     @JsonIgnoreProperties(ignoreUnknown = true)
-    record Recording(@XmlElement String recording_url, @XmlElement String recordingUrl, @XmlElement String size) {
+    record Recording(@XmlElement String recording_url) {
     }
 }
