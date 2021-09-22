@@ -25,7 +25,7 @@ public class UserRepository {
     }
 
     public UserCreateResponse createUser(String phoneNumber) {
-        synchronized (phoneNumber.intern()){
+        synchronized (users){
             if (users.containsKey(phoneNumber)) {
                 return new UserCreateResponse("User already exists", 400, "0", 0L, null, "FAILED");
             }
@@ -38,7 +38,7 @@ public class UserRepository {
     }
 
     public UserCreateResponse deleteUser(String phoneNumber) {
-        synchronized (phoneNumber.intern()){
+        synchronized (users){
             if (!users.containsKey(phoneNumber)) {
                 return new UserCreateResponse("User doesn't exist", 400, "0", 0L, null, "FAILED");
             }
