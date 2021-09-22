@@ -8,6 +8,7 @@ import com.vonage.jamesakinniranye.services.dtos.VoiceParams;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
 
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -27,7 +28,7 @@ public class CallbackResource {
 
     private static final Logger LOG = Logger.getLogger(CallbackResource.class);
 
-
+    @Inject
     public CallbackResource(UserRepository userRepository,
                             @RestClient VerificationService verificationService,
                             @RestClient VoiceEnrollmentService voiceEnrollmentService) {
