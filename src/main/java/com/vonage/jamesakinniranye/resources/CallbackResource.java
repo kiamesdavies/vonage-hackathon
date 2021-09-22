@@ -42,6 +42,7 @@ public class CallbackResource {
     @Consumes(APPLICATION_JSON)
     @Produces(TEXT_PLAIN)
     public String enrollRecording(@PathParam("userId") String userId, Recording recording) {
+        LOG.infov("Received recording {0} for user {1}", recording, userId);
         final var response = voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, recording.recording_url()));
         LOG.infov("Enrolled recording {0} for phoneNumber {1}, status {2} ",
                 recording.recording_url, userRepository.getPhoneNumber(userId), response.status());
@@ -54,6 +55,7 @@ public class CallbackResource {
     @Consumes(APPLICATION_JSON)
     @Produces(TEXT_PLAIN)
     public String verify(@PathParam("userId") String userId, Recording recording) {
+        LOG.infov("Received recording {0} for user {1}", recording, userId);
         final var response = verificationService.verify(new VoiceParams(userId, LANGUAGE, PHRASE, recording.recording_url()));
         LOG.infov("Verified recording {0} from phoneNumber {1}, match confidence is {2}, text confidence is {3}, and  status {4}",
                 recording.recording_url, userRepository.getPhoneNumber(userId), response.confidence(), response.textConfidence(), response.status());
@@ -63,6 +65,6 @@ public class CallbackResource {
 
     @XmlRootElement
     @JsonIgnoreProperties(ignoreUnknown = true)
-    record Recording(@XmlElement String recording_url) {
+    record Recording(@XmlElement String recording_url, @XmlElement String recordingUrl, @XmlElement String size) {
     }
 }
