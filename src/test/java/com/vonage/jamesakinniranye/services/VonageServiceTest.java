@@ -17,13 +17,13 @@ public class VonageServiceTest {
 
     @Test
     public void shouldBeAbleToVerifyCall() {
-        final var callEvent = vonageService.verifyCall("4475657257869", "usr_feb6d1fcd80448628db8ec6a7ddb6322");
+        final var callEvent = vonageService.verifyCall("447565257868", "usr_feb6d1fcd80448628db8ec6a7ddb6322");
         assertThat(callEvent.getStatus(), equalTo(CallStatus.STARTED));
     }
 
     @Test
     public void shouldBeAbleToEnrollCall() {
-        final var callEvent = vonageService.enrollCall("4475657257869", "usr_feb6d1fcd80448628db8ec6a7ddb6322");
+        final var callEvent = vonageService.enrollCall("447565257868", "usr_feb6d1fcd80448628db8ec6a7ddb6322");
         assertThat(callEvent.getStatus(), equalTo(CallStatus.STARTED));
     }
 }

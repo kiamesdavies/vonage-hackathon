@@ -21,7 +21,7 @@ public class VerifyResourceTest {
     @Test
     public void shouldBeAbleToEnroll() {
         given().when()
-                .post("/verify/enroll/{phoneNumber}", "4475657257869")
+                .post("/verify/enroll/{phoneNumber}", "447565257868")
                 .then()
                 .statusCode(200)
                 .body(containsString("usr_feb6d1fcd80448628db8ec6a7ddb6322"));
@@ -29,9 +29,9 @@ public class VerifyResourceTest {
 
     @Test
     public void shouldBeAbleToVerify() {
-        userRepository.createUser("4475657257868");
+        userRepository.createUser("447565257868");
         given().when()
-                .post("/verify/{phoneNumber}", "4475657257869")
+                .post("/verify/{phoneNumber}", "447565257868")
                 .then()
                 .statusCode(200)
                 .body(containsString("success"));
