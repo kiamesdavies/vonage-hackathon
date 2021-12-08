@@ -33,16 +33,16 @@ public class VerificationServiceTest {
 
     @Test
     public void shouldBeAbleToVerify(){
-        final var response = verificationService.verify(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/yyv16td59gchc8cj/rd5.mp3"));
+        final var response = verificationService.verify(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/etuo38mzqiu8xsh7/rec4.mp3"));
         assertThat(response.confidence(), greaterThanOrEqualTo(75d));
     }
 
     @BeforeEach
     void createUser(){
         userId = userRepository.createUser("075657257868").userId();
-        voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/yyv16td59gchc8cj/rd1.mp3"));
-        voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/yyv16td59gchc8cj/rd2.mp3"));
-        voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/yyv16td59gchc8cj/rd3.mp3"));
+        voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/etuo38mzqiu8xsh7/rec1.mp3"));
+        voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/etuo38mzqiu8xsh7/rec2.mp3"));
+        voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/etuo38mzqiu8xsh7/rec3.mp3"));
     }
 
     @AfterEach

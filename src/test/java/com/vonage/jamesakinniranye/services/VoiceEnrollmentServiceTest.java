@@ -30,7 +30,7 @@ public class VoiceEnrollmentServiceTest {
 
     @Test
     public void shouldBeAbleToEnroll(){
-        final var enroll = voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/yyv16td59gchc8cj/rd6.mp3"));
+        final var enroll = voiceEnrollmentService.enroll(new VoiceParams(userId, LANGUAGE, PHRASE, "https://filebin.net/etuo38mzqiu8xsh7/rec4.mp3"));
         assertThat(enroll.status(), equalTo(201));
 
     }
